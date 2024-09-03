@@ -1,10 +1,10 @@
 import {
-  OWGames,
   OWGameListener,
+  OWGames,
   OWWindow
 } from '@overwolf/overwolf-api-ts';
 
-import { kWindowNames, kGameClassIds } from "../consts";
+import { kGameClassIds, kWindowNames } from "../consts";
 
 import RunningGameInfo = overwolf.games.RunningGameInfo;
 import AppLaunchTriggeredEvent = overwolf.extensions.AppLaunchTriggeredEvent;
@@ -50,11 +50,8 @@ class BackgroundController {
   public async run() {
     this._gameListener.start();
 
-    const currWindowName = (await this.isSupportedGameRunning())
-      ? kWindowNames.inGame
-      : kWindowNames.desktop;
-
-    this._windows[currWindowName].restore();
+    this._windows[kWindowNames.inGame].restore();
+    this._windows[kWindowNames.desktop].restore();
   }
 
   private async onAppLaunchTriggered(e: AppLaunchTriggeredEvent) {
