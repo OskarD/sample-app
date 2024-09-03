@@ -5,7 +5,7 @@ import {
 } from "@overwolf/overwolf-api-ts";
 
 import { AppWindow } from "../AppWindow";
-import { kHotkeys, kWindowNames, kGamesFeatures } from "../consts";
+import { kGamesFeatures, kHotkeys, kWindowNames } from "../consts";
 
 import WindowState = overwolf.windows.WindowStateEx;
 
@@ -136,3 +136,5 @@ class InGame extends AppWindow {
 }
 
 InGame.instance().run();
+
+console.log('window', kWindowNames.desktop);
